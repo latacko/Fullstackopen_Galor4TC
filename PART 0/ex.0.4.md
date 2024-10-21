@@ -1,6 +1,6 @@
 Zadanie 0.4:
 
-:::mermaid
+```mermaid
 sequenceDiagram
     participant browser
     participant server
@@ -34,6 +34,4 @@ sequenceDiagram
     activate server
     server-->>browser: the ico file
     deactivate server
-
-
-:::
+```
