@@ -1,19 +1,22 @@
 import { useState } from 'react'
 
-const Button = props=>{
+const Button = props => {
   return (
     <button onClick={props.function}>{props.text}</button>
   )
 }
 
-const StatisticLine = props =>{
+const StatisticLine = props => {
   return (
-    <div>{props.text} {props.value}</div>
+    <tr>
+      <td>{props.text}</td>
+      <td>{props.value}</td>
+    </tr>
   )
 }
 
-const Statistics = (props)=>{
-  if (props.all == 0){
+const Statistics = (props) => {
+  if (props.all == 0) {
     return (
       <p>No feedback given</p>
     )
@@ -21,11 +24,13 @@ const Statistics = (props)=>{
   return (
     <div>
       <h1>statistics</h1>
-      <StatisticLine text="good" value={props.good}></StatisticLine>
-      <StatisticLine text="neutral" value={props.neutral}></StatisticLine>
-      <StatisticLine text="bad" value={props.bad}></StatisticLine>
-      <StatisticLine text="average" value={(props.good+props.bad*-1)/props.all || 0}></StatisticLine>
-      <StatisticLine text="positive" value={props.good*100/props.all || 0}></StatisticLine>
+      <table>
+        <StatisticLine text="good" value={props.good}></StatisticLine>
+        <StatisticLine text="neutral" value={props.neutral}></StatisticLine>
+        <StatisticLine text="bad" value={props.bad}></StatisticLine>
+        <StatisticLine text="average" value={(props.good + props.bad * -1) / props.all || 0}></StatisticLine>
+        <StatisticLine text="positive" value={props.good * 100 / props.all || 0}></StatisticLine>
+      </table>
     </div>
   )
 }
@@ -41,9 +46,9 @@ const App = () => {
   return (
     <div>
       <h1>Give feedback</h1>
-      <Button function={()=>{setGood(good+1); setAll(all+1)}} text="Good"></Button>
-      <Button function={()=>{setNeutral(neutral+1); setAll(all+1)}} text="Neutral"></Button>
-      <Button function={()=>{setBad(bad+1); setAll(all+1)}} text="Bad"></Button>
+      <Button function={() => { setGood(good + 1); setAll(all + 1) }} text="Good"></Button>
+      <Button function={() => { setNeutral(neutral + 1); setAll(all + 1) }} text="Neutral"></Button>
+      <Button function={() => { setBad(bad + 1); setAll(all + 1) }} text="Bad"></Button>
       <Statistics good={good} neutral={neutral} bad={bad} all={all}></Statistics>
     </div>
   )
