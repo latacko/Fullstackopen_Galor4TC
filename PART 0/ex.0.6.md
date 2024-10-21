@@ -1,10 +1,10 @@
 Zadanie 0.6:
 
-:::mermaid
+```mermaid
 sequenceDiagram
     participant browser
     participant server
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
     Note right of browser: The server starts executing backend code and add message to json
-:::
+```
