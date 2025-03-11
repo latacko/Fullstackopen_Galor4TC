@@ -1,6 +1,6 @@
 FAJNY PROJEKT
 
-:::mermaid
+```mermaid
 %%{init:{'flowchart':{'nodeSpacing': 50, 'rankSpacing':'200'}}}%%
 
 flowchart LR
@@ -310,4 +310,4 @@ flowchart LR
         end
     end
 
-:::
+```
